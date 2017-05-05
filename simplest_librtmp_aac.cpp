@@ -1,12 +1,11 @@
 #include <stdio.h>
-//#include "librtmp_send264.h"
 #include "librtmp_sendAAC.h"
 #include "rtmp_net.h"
 
 
 FILE *fp_send1;
 
-//¶ÁÎÄ¼şµÄ»Øµ÷º¯Êı
+//è¯»æ–‡ä»¶çš„å›è°ƒå‡½æ•°
 //we use this callback function to read data from buffer
 int read_buffer1(unsigned char *buf, int buf_size ){
 	if(!feof(fp_send1)){
@@ -20,15 +19,12 @@ int read_buffer1(unsigned char *buf, int buf_size ){
 //#include<windows.h>
 
 int main(int argc, char* argv[])
-{
-	//fp_send1 = fopen("cuc_ieschool.h264", "rb");
-	
-	//³õÊ¼»¯²¢Á¬½Óµ½·şÎñÆ÷
+{	
+	//åˆå§‹åŒ–å¹¶è¿æ¥åˆ°æœåŠ¡å™¨
 	Net_Init("rtmp://192.168.0.5:1935/live");
-	//·¢ËÍ
+	//å‘é€
 	RTMPAAC_Send();
-	//RTMP264_Send(read_buffer1);
-	//¶Ï¿ªÁ¬½Ó²¢ÊÍ·ÅÏà¹Ø×ÊÔ´
+	//æ–­å¼€è¿æ¥å¹¶é‡Šæ”¾ç›¸å…³èµ„æº
 	Net_Close();
 
 	return 0;
